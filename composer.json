@@ -1,5 +1,5 @@
 {
-    "name": "careset/zermelo",
+    "name": "ftrotter/zermelo",
     "description": "Zermelo, a PHP reporting engine for Laravel",
     "type": "library",
     "license": "Apache-2.0",
@@ -24,13 +24,13 @@
     },
     "autoload": {
         "psr-4" : {
-            "CareSet\\Zermelo\\" : "src/"
+            "ftrotter\\Zermelo\\" : "src/"
         }
     },
     "extra": {
 	    "laravel": {
 	        "providers": [
-	            "CareSet\\Zermelo\\ZermeloServiceProvider"
+	            "ftrotter\\Zermelo\\ZermeloServiceProvider"
 	        ]
 	    }
 	},
