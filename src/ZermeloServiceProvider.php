@@ -67,39 +67,35 @@ Class ZermeloServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot( Router $router )
     {
-        if (php_sapi_name() !== 'cli') {
-            // Register the cache database connection if we have a zermelo db,
-            // but only if we're running a web route, not during install commands
-            $zermelo_cache_db = zermelo_cache_db();
-            if (ZermeloDatabase::doesDatabaseExist($zermelo_cache_db)) {
-                ZermeloDatabase::configure($zermelo_cache_db);
-            }
+        // Register the cache database connection if we have a zermelo db,
+        // but only if we're running a web route, not during install commands
+        $zermelo_cache_db = zermelo_cache_db();
+        if (ZermeloDatabase::doesDatabaseExist($zermelo_cache_db)) {
+            ZermeloDatabase::configure($zermelo_cache_db);
+        }
 
-            // Register and configure the config DB
-            $zermelo_config_db = zermelo_config_db();
-            if ( ZermeloDatabase::doesDatabaseExist( $zermelo_config_db ) ) {
-                ZermeloDatabase::configure( $zermelo_config_db );
-            }
+        // Register and configure the config DB
+        $zermelo_config_db = zermelo_config_db();
+        if ( ZermeloDatabase::doesDatabaseExist( $zermelo_config_db ) ) {
+            ZermeloDatabase::configure( $zermelo_config_db );
+        }
 
-            // Validate that there is only one is_default_socket for a wrench, throw an exception
-            // if there is a wrench with Zero default sockets, or a wrench with more than one
-            // default socket, as this can result unexpected behavior
-            if (!$this->is_socket_checked) {
-                $this->is_socket_ok = SocketService::checkIsDefaultSocket();
-                $this->is_socket_checked = true;
-            }
+        // Validate that there is only one is_default_socket for a wrench, throw an exception
+        // if there is a wrench with Zero default sockets, or a wrench with more than one
+        // default socket, as this can result unexpected behavior
+        if (!$this->is_socket_checked) {
+            $this->is_socket_ok = SocketService::checkIsDefaultSocket();
+            $this->is_socket_checked = true;
         }
 
         // routes
 
         // Boot our reports, but only in web mode. We don't care to register reports
         // during composer package discovery, or installation
-        if (php_sapi_name() !== 'cli') {
-            $this->registerApiRoutes();
-            $this->registerWebRoutes();
-            $this->registerReports();
-            $this->loadViewsFrom( resource_path( 'views/zermelo' ), 'Zermelo');
-        }
+        $this->registerApiRoutes();
+        $this->registerWebRoutes();
+        $this->registerReports();
+        $this->loadViewsFrom( resource_path( 'views/zermelo' ), 'Zermelo');
     }
 
     /**

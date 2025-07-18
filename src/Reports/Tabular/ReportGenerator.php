@@ -65,6 +65,13 @@ class ReportGenerator extends AbstractGenerator implements GeneratorInterface
 		//so we have to run it on the first row of actual data and then see what columns come back..
             $data_row = $this->cache->MapRow( $data_row, $first_row_num );
             $mapped_header = array_keys( $data_row );
+        }else{
+            if(empty($fields)){
+                $mapped_header = [];
+            }else{
+                $data_row = $this->cache->MapRow( $fields, $first_row_num );
+                $mapped_header = array_keys($data_row);
+            }
         }
 
         /*
