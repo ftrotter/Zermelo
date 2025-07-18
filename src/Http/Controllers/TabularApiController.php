@@ -1,11 +1,11 @@
 <?php
 
-namespace CareSet\Zermelo\Http\Controllers;
+namespace ftrotter\Zermelo\Http\Controllers;
 
-use CareSet\Zermelo\Http\Requests\ZermeloRequest;
-use CareSet\Zermelo\Models\DatabaseCache;
-use CareSet\Zermelo\Reports\Tabular\ReportGenerator;
-use CareSet\Zermelo\Reports\Tabular\ReportSummaryGenerator;
+use ftrotter\Zermelo\Http\Requests\ZermeloRequest;
+use ftrotter\Zermelo\Models\DatabaseCache;
+use ftrotter\Zermelo\Reports\Tabular\ReportGenerator;
+use ftrotter\Zermelo\Reports\Tabular\ReportSummaryGenerator;
 use DB;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;

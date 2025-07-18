@@ -5,9 +5,9 @@
  * Date: 1/14/19
  * Time: 9:51 AM
  */
-namespace CareSet\Zermelo\Reports\Cards;
+namespace ftrotter\Zermelo\Reports\Cards;
 
-use CareSet\Zermelo\Models\ZermeloReport;
+use ftrotter\Zermelo\Models\ZermeloReport;
 
 abstract class AbstractCardsReport extends ZermeloReport
 {

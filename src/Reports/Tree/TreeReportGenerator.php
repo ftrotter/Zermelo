@@ -1,11 +1,11 @@
 <?php
 
-namespace CareSet\Zermelo\Reports\Tree;
+namespace ftrotter\Zermelo\Reports\Tree;
 
-use CareSet\Zermelo\Interfaces\CacheInterface;
-use CareSet\Zermelo\Models\AbstractGenerator;
-use CareSet\Zermelo\Models\DatabaseCache;
-use CareSet\Zermelo\Models\ZermeloDatabase;
+use ftrotter\Zermelo\Interfaces\CacheInterface;
+use ftrotter\Zermelo\Models\AbstractGenerator;
+use ftrotter\Zermelo\Models\DatabaseCache;
+use ftrotter\Zermelo\Models\ZermeloDatabase;
 use DB;
 
 class TreeReportGenerator extends AbstractGenerator

@@ -1,10 +1,10 @@
 <?php
 
-namespace CareSet\Zermelo\Models;
+namespace ftrotter\Zermelo\Models;
 
 use Carbon\Carbon;
-use CareSet\Zermelo\Exceptions\InvalidDatabaseTableException;
-use CareSet\Zermelo\Interfaces\ZermeloReportInterface;
+use ftrotter\Zermelo\Exceptions\InvalidDatabaseTableException;
+use ftrotter\Zermelo\Interfaces\ZermeloReportInterface;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseCache

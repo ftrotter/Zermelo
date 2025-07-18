@@ -6,7 +6,7 @@
  * Time: 2:38 PM
  */
 
-namespace CareSet\Zermelo\Models;
+namespace ftrotter\Zermelo\Models;
 
 use Illuminate\Support\Facades\DB;
 

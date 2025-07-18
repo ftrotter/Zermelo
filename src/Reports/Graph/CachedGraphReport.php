@@ -6,12 +6,12 @@
  * Time: 2:47 PM
  */
 
-namespace CareSet\Zermelo\Reports\Graph;
+namespace ftrotter\Zermelo\Reports\Graph;
 
 
-use CareSet\Zermelo\Models\DatabaseCache;
-use CareSet\Zermelo\Models\ZermeloReport;
-use CareSet\Zermelo\Models\ZermeloDatabase;
+use ftrotter\Zermelo\Models\DatabaseCache;
+use ftrotter\Zermelo\Models\ZermeloReport;
+use ftrotter\Zermelo\Models\ZermeloDatabase;
 use \DB;
 
 class CachedGraphReport extends DatabaseCache
@@ -503,7 +503,7 @@ CREATE TABLE $this->cache_db.$this->summary_table (
 
         //loop all over the sql commands and run each one in order...
         // The connection is a DB Connection to our CACHE DATABASE using the credentials
-        // The connection is created in CareSet\Zermelo\Models\ZermeloDatabsse
+        // The connection is created in ftrotter\Zermelo\Models\ZermeloDatabsse
         foreach ($sql as $this_sql) {
 	    try{
             	$pdo->exec($this_sql);

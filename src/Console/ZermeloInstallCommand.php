@@ -1,9 +1,9 @@
 <?php
 
-namespace CareSet\Zermelo\Console;
+namespace ftrotter\Zermelo\Console;
 
-use CareSet\Zermelo\Models\DatabaseCache;
-use CareSet\Zermelo\Models\ZermeloDatabase;
+use ftrotter\Zermelo\Models\DatabaseCache;
+use ftrotter\Zermelo\Models\ZermeloDatabase;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Config;
@@ -63,16 +63,16 @@ class ZermeloInstallCommand extends AbstractZermeloInstallCommand
         '/vendor/fortawesome/font-awesome/js/all.min.js' => '/core/font-awesome/js/all.min.js',
 
         // Core assets that live in the zermelo repo
-        '/vendor/careset/zermelo/assets/core/css' => '/core/css',
-        '/vendor/careset/zermelo/assets/core/js' => '/core/js',
+        '/vendor/ftrotter/zermelo/assets/core/css' => '/core/css',
+        '/vendor/ftrotter/zermelo/assets/core/js' => '/core/js',
 
         // Graph Assets
-        '/vendor/careset/zermelo/assets/zermelobladegraph/css' => '/zermelobladegraph/css',
-        '/vendor/careset/zermelo/assets/zermelobladegraph/js' => '/zermelobladegraph/js',
+        '/vendor/ftrotter/zermelo/assets/zermelobladegraph/css' => '/zermelobladegraph/css',
+        '/vendor/ftrotter/zermelo/assets/zermelobladegraph/js' => '/zermelobladegraph/js',
 
         // Tabular Assets
-        '/vendor/careset/zermelo/assets/zermelobladetabular/datatables' => '/zermelobladetabular/datatables',
-        '/vendor/careset/zermelo/assets/zermelobladetabular/js' => '/zermelobladetabular/js',
+        '/vendor/ftrotter/zermelo/assets/zermelobladetabular/datatables' => '/zermelobladetabular/datatables',
+        '/vendor/ftrotter/zermelo/assets/zermelobladetabular/js' => '/zermelobladetabular/js',
     ];
 
     protected static $config_file = __DIR__.'/../../config/zermelo.php';
@@ -93,7 +93,7 @@ class ZermeloInstallCommand extends AbstractZermeloInstallCommand
      */
     protected $description = 'Install all available Zermelo packages';
 
-    const CONFIG_MIGRATIONS_PATH = 'vendor/careset/zermelo/database/migrations';
+    const CONFIG_MIGRATIONS_PATH = 'vendor/ftrotter/zermelo/database/migrations';
 
     public function handle()
     {
@@ -250,10 +250,10 @@ class ZermeloInstallCommand extends AbstractZermeloInstallCommand
     {
         // Create the database
         if ( ZermeloDatabase::doesDatabaseExist( $zermelo_cache_db_name ) ) {
-            DB::connection()->statement( DB::connection()->raw( "DROP DATABASE IF EXISTS " . $zermelo_cache_db_name . ";" ) );
+            DB::connection('mysql')->statement( DB::connection()->raw( "DROP DATABASE IF EXISTS " . $zermelo_cache_db_name . ";" ) );
         }
 
-        DB::statement("CREATE DATABASE IF NOT EXISTS `".$zermelo_cache_db_name."`;");
+        DB::connection('mysql')->statement("CREATE DATABASE IF NOT EXISTS `".$zermelo_cache_db_name."`;");
 
         // Write the database name to the master config
         config( ['zermelo.ZERMELO_CACHE_DB' => $zermelo_cache_db_name ] );
@@ -266,10 +266,10 @@ class ZermeloInstallCommand extends AbstractZermeloInstallCommand
     {
         // Create the database
         if ( ZermeloDatabase::doesDatabaseExist( $zermelo_config_db_name ) ) {
-            DB::connection()->statement( DB::connection()->raw( "DROP DATABASE IF EXISTS " . $zermelo_config_db_name . ";" ) );
+            DB::connection('mysql')->statement( DB::connection()->raw( "DROP DATABASE IF EXISTS " . $zermelo_config_db_name . ";" ) );
         }
 
-        DB::statement("CREATE DATABASE IF NOT EXISTS `".$zermelo_config_db_name."`;");
+        DB::connection('mysql')->statement("CREATE DATABASE IF NOT EXISTS `".$zermelo_config_db_name."`;");
 
         // Write the database name to the master config
         config( ['zermelo.ZERMELO_CONFIG_DB' => $zermelo_config_db_name ] );

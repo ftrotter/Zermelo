@@ -10,7 +10,7 @@
  * database exists, getting meta data, etc.
  */
 
-namespace CareSet\Zermelo\Models;
+namespace ftrotter\Zermelo\Models;
 
 
 use Illuminate\Database\QueryException;
@@ -82,7 +82,7 @@ class ZermeloDatabase
 //        config(["database.connections.mysql.database" => null]);
 
         try {
-            $db = DB::select( $query, [ $database ] );
+            $db = DB::connection('mysql')->select( $query, [ $database ] );
         } catch ( \Exception $e ) {
 
             if ($e->getCode() == 1049) {

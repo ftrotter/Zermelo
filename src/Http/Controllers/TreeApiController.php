@@ -1,11 +1,11 @@
 <?php
 
-namespace CareSet\Zermelo\Http\Controllers;
+namespace ftrotter\Zermelo\Http\Controllers;
 
-use CareSet\Zermelo\Http\Requests\ZermeloRequest;
-use CareSet\Zermelo\Reports\Tree\CachedTreeReport;
-use CareSet\Zermelo\Reports\Tree\TreeReportGenerator;
-use CareSet\Zermelo\Reports\Tree\TreeReportSummaryGenerator;
+use ftrotter\Zermelo\Http\Requests\ZermeloRequest;
+use ftrotter\Zermelo\Reports\Tree\CachedTreeReport;
+use ftrotter\Zermelo\Reports\Tree\TreeReportGenerator;
+use ftrotter\Zermelo\Reports\Tree\TreeReportSummaryGenerator;
 
 class TreeApiController
 {

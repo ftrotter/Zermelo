@@ -6,7 +6,7 @@
  * Time: 12:14 PM
  */
 
-namespace CareSet\Zermelo\Interfaces;
+namespace ftrotter\Zermelo\Interfaces;
 
 
 interface ZermeloReportInterface

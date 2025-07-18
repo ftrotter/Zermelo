@@ -1,11 +1,11 @@
 <?php
 
-namespace CareSet\Zermelo\Reports\Graph;
+namespace ftrotter\Zermelo\Reports\Graph;
 
-use CareSet\Zermelo\Interfaces\CacheInterface;
-use CareSet\Zermelo\Models\AbstractGenerator;
-use CareSet\Zermelo\Models\DatabaseCache;
-use CareSet\Zermelo\Models\ZermeloDatabase;
+use ftrotter\Zermelo\Interfaces\CacheInterface;
+use ftrotter\Zermelo\Models\AbstractGenerator;
+use ftrotter\Zermelo\Models\DatabaseCache;
+use ftrotter\Zermelo\Models\ZermeloDatabase;
 use DB;
 
 class GraphGenerator extends AbstractGenerator

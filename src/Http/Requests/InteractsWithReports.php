@@ -1,9 +1,9 @@
 <?php
 
-namespace CareSet\Zermelo\Http\Requests;
+namespace ftrotter\Zermelo\Http\Requests;
 
-use CareSet\Zermelo\Models\ReportFactory;
-use CareSet\Zermelo\Zermelo;
+use ftrotter\Zermelo\Models\ReportFactory;
+use ftrotter\Zermelo\Zermelo;
 
 trait InteractsWithReports
 {
@@ -53,7 +53,7 @@ trait InteractsWithReports
     /**
      * Get a new instance of the resource being requested.
      *
-     * @return \CareSet\Zermelo\Models\ZermeloReport
+     * @return \ftrotter\Zermelo\Models\ZermeloReport
      */
     public function buildReport()
     {

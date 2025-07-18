@@ -1,9 +1,9 @@
 <?php
 
-namespace CareSet\Zermelo\Http\Controllers;
+namespace ftrotter\Zermelo\Http\Controllers;
 
-use CareSet\Zermelo\Http\Controllers\AbstractWebController;
-use CareSet\Zermelo\Interfaces\ZermeloReportInterface;
+use ftrotter\Zermelo\Http\Controllers\AbstractWebController;
+use ftrotter\Zermelo\Interfaces\ZermeloReportInterface;
 
 class TabularController extends AbstractWebController
 {
