@@ -94,10 +94,10 @@ abstract class AbstractWebController extends BaseController
         // Get the view template from the child controller
         $view_template = $this->getViewTemplate();
 
-	if(strlen($view_template) == 0){
-		echo "Error: Your zermelo configuration is likely outdated. sought a view template and got a blank screen";
-		exit()
-	}
+        if(strlen($view_template) == 0){
+            echo "Error: Your zermelo configuration is likely outdated. sought a view template and got a blank screen";
+            exit(1);
+        }
 
         // This function gets both view variables set on the report, and in the controller
         $view_varialbes = $report->getViewVariables();
