@@ -132,15 +132,22 @@ SELECT
 	CAST(CONVERT(nodes.id USING utf8) AS binary) AS my_index
 FROM $this->cache_db.{$this->cache->getNodesTable()} AS nodes
 LEFT JOIN $this->cache_db.{$this->cache->getNodeGroupsTable()} AS groups ON 
-	groups.group_name =
-    	node_group
+	groups.group_name COLLATE utf8mb4_unicode_ci =
+    	node_group COLLATE utf8mb4_unicode_ci
 LEFT JOIN $this->cache_db.{$this->cache->getNodeTypesTable()} AS types ON 
-	types.node_type = 
-    	nodes.node_type 
+	types.node_type COLLATE utf8mb4_unicode_ci =
+    	nodes.node_type COLLATE utf8mb4_unicode_ci
 ORDER BY nodes.id ASC
 ";
         //lets load the link_types from the database...
         $nodes = [];
+
+/*
+TODO 
+The following line results in
+SQLSTATE[HY000]: General error: 1267 Illegal mix of collations (utf8mb4_general_ci,IMPLICIT) and (utf8mb4_unicode_ci,IMPLICIT) for operation '='
+*/
+
 	$nodes_result = $pdo->query($nodes_sql);
 	$nodes_result->setFetchMode(\PDO::FETCH_OBJ);
         foreach ($nodes_result as $this_row) {
